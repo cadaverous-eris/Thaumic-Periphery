@@ -1,0 +1,13 @@
+{
+    "parent": "item/generated",    
+    "overrides": [
+        {
+            "predicate": { "focus": 0 },
+            "model": "thaumicperiphery:item/caster_ember_model"
+        },
+        {
+            "predicate": { "focus": 1 },
+            "model": "thaumicperiphery:item/caster_ember_focus_model"
+        }
+    ]
+}

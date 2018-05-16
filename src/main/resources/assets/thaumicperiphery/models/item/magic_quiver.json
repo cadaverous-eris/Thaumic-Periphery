@@ -1,0 +1,32 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "thaumicperiphery:items/magic_quiver"
+	},
+	"overrides": [
+		{
+      "predicate": {
+        "thaumicperiphery:charge": 0.001
+      },
+      "model": "thaumicperiphery:item/magic_quiver_filled_1"
+    },
+		{
+      "predicate": {
+        "thaumicperiphery:charge": 0.251
+      },
+      "model": "thaumicperiphery:item/magic_quiver_filled_2"
+    },
+		{
+      "predicate": {
+        "thaumicperiphery:charge": 0.501
+      },
+      "model": "thaumicperiphery:item/magic_quiver_filled_3"
+    },
+		{
+      "predicate": {
+        "thaumicperiphery:charge": 0.751
+      },
+      "model": "thaumicperiphery:item/magic_quiver_filled_4"
+    }
+	]
+}

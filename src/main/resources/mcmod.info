@@ -1,0 +1,16 @@
+[
+{
+  "modid": "thaumicperiphery",
+  "name": "Thaumic Periphery",
+  "description": "",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["mangoose"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

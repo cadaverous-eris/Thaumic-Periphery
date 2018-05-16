@@ -1,0 +1,22 @@
+{
+	"entries": [
+		{
+			"key": "CASTERELEMENTIUM",
+			"name": "research.CASTERELEMENTIUM.title",
+			"icons": ["thaumicperiphery:caster_elementium;1;0"],
+			"category": "PERIPHERY", "location": [3,-1],
+			"parents": ["BASEPERIPHERY", "BASEAUROMANCY"],
+			"stages": [
+				{
+					"text": "research.CASTERELEMENTIUM.stage.1",
+					"required_item": ["botania:manaresource;1;23", "botania:lens;1;0"],
+					"required_knowledge":["THEORY;AUROMANCY;1"]
+				},
+				{
+					"text": "research.CASTERELEMENTIUM.stage.2",
+					"recipes": ["thaumicperiphery:caster_elementium"]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"entries": [
+		{
+			"key": "CASTEREMBER",
+			"name": "research.CASTEREMBER.title",
+			"icons": ["thaumicperiphery:caster_ember;1;0"],
+			"category": "PERIPHERY", "location": [3,1],
+			"parents": ["BASEPERIPHERY", "BASEAUROMANCY"],
+			"stages": [
+				{
+					"text": "research.CASTEREMBER.stage.1",
+					"required_item": ["embers:ember_cluster;1;0", "embers:ember_detector;1;0"],
+					"required_knowledge":["THEORY;AUROMANCY;1"]
+				},
+				{
+					"text": "research.CASTEREMBER.stage.2",
+					"recipes": ["thaumicperiphery:caster_ember"]
+				}
+			]
+		}
+	]
+}

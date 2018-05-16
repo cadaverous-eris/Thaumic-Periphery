@@ -1,0 +1,54 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url = "http://files.minecraftforge.net/maven" }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+    }
+}
+apply plugin: 'net.minecraftforge.gradle.forge'
+//Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+
+repositories {
+	mavenCentral()
+    maven {
+        name = "thiakil"
+        url = "http://maven.thiakil.com"
+    }
+}
+
+version = "0.2.1"
+group = "com.mangoose.thaumicperiphery"
+archivesBaseName = "thaumicperiphery"
+
+sourceCompatibility = targetCompatibility = '1.8'
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+}
+
+minecraft {
+    version = "1.12.2-14.23.3.2655"
+    runDir = "run"
+    
+    mappings = "snapshot_20171003"
+}
+
+dependencies {
+	deobfCompile "com.azanor.baubles:Baubles:1.12-1.5.2"
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+		
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+	
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}

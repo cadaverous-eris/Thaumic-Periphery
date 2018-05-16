@@ -1,0 +1,98 @@
+{
+	"entries": [
+		{
+			"key": "BASEPERIPHERY",
+			"name": "research.BASEPERIPHERY.title",
+			"icons": ["thaumcraft:textures/misc/vortex.png"],
+			"category": "PERIPHERY", "location": [0,0],
+			"parents": ["UNLOCKAUROMANCY"],
+			"meta": ["ROUND" , "HIDDEN"],
+			"stages": [
+				{
+					"text": "research.BASEPERIPHERY.stage.1",
+					"recipes": ["thaumicperiphery:pauldron"]
+				}
+			]
+		},
+		{
+			"key": "PAULDRONREPULSION",
+			"name": "research.PAULDRONREPULSION.title",
+			"icons": ["thaumicperiphery:pauldron_repulsion;1;0"],
+			"category": "PERIPHERY", "location": [-4,0],
+			"parents": ["BASEPERIPHERY", "PAVINGSTONES"],
+			"stages": [
+				{
+					"text": "research.PAULDRONREPULSION.stage.1",
+					"required_knowledge":["THEORY;INFUSION;1"]
+				},
+				{
+					"text": "research.PAULDRONREPULSION.stage.2",
+					"recipes": ["thaumicperiphery:pauldron_repulsion"]
+				}
+			]
+		},
+		{
+			"key": "MALIGNANTHEART",
+			"name": "research.MALIGNANTHEART.title",
+			"icons": ["thaumicperiphery:malignant_heart"],
+			"category": "PERIPHERY", "location": [-3,-1],
+			"parents": ["BASEPERIPHERY", "VERDANTCHARMS"],
+			"stages": [
+				{
+					"text": "research.MALIGNANTHEART.stage.1",
+					"required_knowledge":["THEORY;INFUSION;1", "THEORY;ALCHEMY;1"],
+					"required_item": [
+						"thaumcraft:crystal_essence;1;0;{Aspects:[{amount:1,key:'victus'}]}",
+						"thaumcraft:crystal_essence;1;0;{Aspects:[{amount:1,key:'mortuus'}]}",
+						"thaumcraft:crystal_essence;1;0;{Aspects:[{amount:1,key:'exanimis'}]}"
+					]
+				},
+				{
+					"text": "research.MALIGNANTHEART.stage.2",
+					"recipes": ["thaumicperiphery:malignant_heart"],
+					"warp": 2
+				}
+			]
+		},
+		{
+			"key": "MAGICQUIVER",
+			"name": "research.MAGICQUIVER.title",
+			"icons": ["thaumicperiphery:magic_quiver"],
+			"category": "PERIPHERY", "location": [-3,1],
+			"parents": ["BASEPERIPHERY", "FOCUSPROJECTILE", "BOOTSTRAVELLER"],
+			"stages": [
+				{
+					"text": "research.MAGICQUIVER.stage.1",
+					"required_knowledge":["THEORY;AUROMANCY;1"],
+					"required_item": [
+						"thaumcraft:crystal_essence;1;0;{Aspects:[{amount:1,key:'motus'}]}",
+						"thaumcraft:crystal_essence;1;0;{Aspects:[{amount:1,key:'auram'}]}",
+						"minecraft:arrow"
+					]
+				},
+				{
+					"text": "research.MAGICQUIVER.stage.2",
+					"recipes": ["thaumicperiphery:magic_quiver"]
+				}
+			]
+		},
+		{
+			"key": "VISPHYLACTERY",
+			"name": "research.VISPHYLACTERY.title",
+			"icons": ["thaumicperiphery:vis_phylactery"],
+			"category": "PERIPHERY", "location": [0,-2],
+			"parents": ["BASEPERIPHERY", "VISAMULET"],
+			"stages": [
+				{
+					"text": "research.VISPHYLACTERY.stage.1",
+					"required_knowledge":["THEORY;AUROMANCY;1"],
+					"required_item": ["thaumcraft:amber"]
+				},
+				{
+					"text": "research.VISPHYLACTERY.stage.2",
+					"recipes": ["thaumicperiphery:vis_phylactery"]
+				}
+			]
+		}
+	]
+}
