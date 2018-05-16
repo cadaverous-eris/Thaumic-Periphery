@@ -178,25 +178,7 @@ public class EntityMagicArrow extends EntityArrow {
 
                 if (this.ticksInGround >= 1) {
                 	if (world.isRemote) {
-                		int p = this.rand.nextInt(7) + 9;
-                		for (int i = 0; i < 9; i++) {
-                			FXGeneric fb = new FXGeneric(this.world, this.posX, this.posY, this.posZ, this.rand.nextGaussian() * 0.05D, this.rand.nextGaussian() * 0.05D, this.rand.nextGaussian() * 0.05D);
-                	        fb.setMaxAge(15 + this.rand.nextInt(20));
-                	        if (this.getIsCritical()) {
-                	        	fb.setRBGColorF(1.0F, 0.2F, 0.6F);
-                	        } else {
-                	        	fb.setRBGColorF(1.0F, 0.2F, 0.8F);
-                	        }
-                	        fb.setAlphaF(0.5F);
-                	        fb.setGridSize(64);
-                	        fb.setParticles(264, 8, 1);
-                	        fb.setScale(new float[] { 3.0F, 1F });
-                	        fb.setLayer(0);
-                	        fb.setSlowDown(1D);
-                	        fb.setGravity(0.1F);
-                	        fb.setWind(0.001D);
-                	        ParticleEngine.addEffect(this.world, fb);
-                		}
+                		createHitParticles();
                 	}
                 	
                     this.setDead();
@@ -287,6 +269,29 @@ public class EntityMagicArrow extends EntityArrow {
             this.doBlockCollisions();
         }
     }
+	
+	@SideOnly(Side.CLIENT)
+	public void createHitParticles() {
+		int p = this.rand.nextInt(7) + 9;
+		for (int i = 0; i < 9; i++) {
+			FXGeneric fb = new FXGeneric(this.world, this.posX, this.posY, this.posZ, this.rand.nextGaussian() * 0.05D, this.rand.nextGaussian() * 0.05D, this.rand.nextGaussian() * 0.05D);
+	        fb.setMaxAge(15 + this.rand.nextInt(20));
+	        if (this.getIsCritical()) {
+	        	fb.setRBGColorF(1.0F, 0.2F, 0.6F);
+	        } else {
+	        	fb.setRBGColorF(1.0F, 0.2F, 0.8F);
+	        }
+	        fb.setAlphaF(0.5F);
+	        fb.setGridSize(64);
+	        fb.setParticles(264, 8, 1);
+	        fb.setScale(new float[] { 3.0F, 1F });
+	        fb.setLayer(0);
+	        fb.setSlowDown(1D);
+	        fb.setGravity(0.1F);
+	        fb.setWind(0.001D);
+	        ParticleEngine.addEffect(this.world, fb);
+		}
+	}
 	
 	protected void onHit(RayTraceResult raytraceResultIn) {
         Entity entity = raytraceResultIn.entityHit;

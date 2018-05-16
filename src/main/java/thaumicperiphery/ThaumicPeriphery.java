@@ -19,7 +19,7 @@ public class ThaumicPeriphery {
 	
 	public static final String MODID = "thaumicperiphery";
 	public static final String NAME = "Thaumic Periphery";
-	public static final String VERSION = "0.2.1";
+	public static final String VERSION = "0.2.2";
 	public static final String DEPENDENCIES = "required-after:thaumcraft;after:botania;after:embers";
 	
 	public static boolean botaniaLoaded = Loader.isModLoaded("botania");
