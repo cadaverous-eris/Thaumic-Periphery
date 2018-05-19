@@ -87,8 +87,6 @@ public class PhantomInkRecipe extends IForgeRegistryEntry.Impl<IRecipe> implemen
 		
 		boolean inkable = false;
 		
-		if (!item.getContainerItem(stack).isEmpty()) return false;
-		
 		if (item == ItemsTC.amuletVis) inkable = true;
 		
 		if (item == ItemsTC.focusPouch) inkable = true;
