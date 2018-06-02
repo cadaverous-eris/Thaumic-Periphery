@@ -4,8 +4,8 @@ itemGroup.thaumicperiphery=Thaumic Periphery
 #Blocks
 
 #Items
-item.caster_ember.name=发条Caster's Guantlet
-item.caster_elementium.name=源质Caster's Guantlet
+item.caster_ember.name=发条法师护手
+item.caster_elementium.name=源质法师护手
 item.pauldron.name=护肩甲
 item.pauldron_repulsion.name=守卫者护肩甲
 item.malignant_heart.name=恶魔之心
@@ -13,7 +13,7 @@ item.magic_quiver.name=奥术箭袋
 item.vis_phylactery.name=魔力护身符
 
 #Info
-thaumicperiphery.ember.cost=Ember Cost:
+thaumicperiphery.ember.cost=Ember消耗：
 item.Focus.cost_ember=Ember per cast
 bauble.worn=穿戴时：
 item.malignant_heart.info.1=+50& 攻击伤害
@@ -27,17 +27,17 @@ tc.research_category.PERIPHERY=Periphery
 research.BASEPERIPHERY.title=Thaumic Periphery
 research.BASEPERIPHERY.stage.1=随着对"神秘学"不断研究，我不禁感觉这可能还只是冰山一角。我试想着怎样将它发挥至极致，想着将其与其他魔法进行兼容。
 
-research.CASTEREMBER.title=发条Casting
-research.CASTEREMBER.stage.1=The mystical energy source known as 'ember' can be used in many magical and mechanical devices. Perhaps I can fashion a casting gauntlet that uses ember instead of vis.
-research.CASTEREMBER.stage.2=Through careful study of the aura and the nature of ember, I have managed to invent a casting gauntlet that makes use of ember instead of vis.
+research.CASTEREMBER.title=发条法师护手
+research.CASTEREMBER.stage.1=偶然间，我突发奇想为什么不用"Ember"这种神秘能量来制造护手呢？
+research.CASTEREMBER.stage.2=通过仔细研究"Ember"与Vis之间的性质，我设法制造了一个由"Ember"能量组成的法师护手。
 
-research.CASTERELEMENTIUM.title=Casting with Mana
-research.CASTERELEMENTIUM.stage.1=There seems to be no end to the many ways in which Botanists are able to harness the power of mana. I'm sure that I could create a casting gauntlet that utilizes mana instead of vis.
-research.CASTERELEMENTIUM.stage.2=Through careful study of the aura and the nature of mana, I have devised a casting gauntlet that makes use of mana instead of vis.
+research.CASTERELEMENTIUM.title=魔力亲和
+research.CASTERELEMENTIUM.stage.1=植物学家能够利用Mana解决许多力所能及的问题。因此，我认为我也能够制造出一个利用Mana运作的法师护手。
+research.CASTERELEMENTIUM.stage.2=通过仔细研究"Mana"与Vis之间的性质，我设法制造了一个由"Mana"能量组成的法师护手。
 
 research.PAULDRONREPULSION.title=守卫者护肩甲
 research.PAULDRONREPULSION.stage.1=我已经厌倦了受怪物压迫的日子，或许我应该着手研究些能够击退怪物的东西，好让我有足够的时间干其他事情。
-research.PAULDRONREPULSION.stage.2=我已经草拟了一份蓝图。当我受到怪物攻击时，它能够有效的击退怪物一段距离。不过值得注意的是，这种效果不能连续触发（冷却时间＞5）。
+research.PAULDRONREPULSION.stage.2=我已经草拟了一份蓝图。当我受到怪物攻击时，它能够有效的击退怪物一段距离。不过值得注意的是，这种效果不能连续触发（冷却时间大于5）。
 
 research.MALIGNANTHEART.title=恶魔之心
 research.MALIGNANTHEART.stage.1=有句话说得好，"进攻就是最好的防守"。我也许能够制作出一种通过献祭自己的生命来提高攻击伤害的装备，在这之前我需要好好研究下生命本质。
@@ -48,5 +48,5 @@ research.MAGICQUIVER.stage.1=在进行远程搏斗时，我发现胜利往往指
 research.MAGICQUIVER.stage.2=就像我制造法师护手那样，我也可以试着制造出一个蕴魔的箭袋。它能够将Vis转化为箭矢。<BR>与法师护手不同，它不能直接吸收Vis并转化为箭矢，其需要通过充能基座或类似物进行充能。当你身上没有箭矢时，你便可穿戴它进行射击。值得注意的是，它的伤害比常规的箭矢略小，但却对穿戴护甲的实体非常有效。
 
 research.VISPHYLACTERY.title=魔力护身符
-research.VISPHYLACTERY.stage.1=While most vis-using equipment has ample vis storage, sometimes a bit of backup charge could come in handy. An upgrade for the amulet of vis might do the trick.
-research.VISPHYLACTERY.stage.2=By infusing an amulet of vis with a few amber crystals, I can create an upgraded amulet that can both charge items from the aura and store vis within itself.<BR>Instead of directly charging other items from the aura, it will charge itself and then use it's vis reserve to charge other equipment in my inventory. It will only charge itself if the local aura contains more than 50 vis.<BR>The vis phylactery can store up to 300 vis.
+research.VISPHYLACTERY.stage.1=尽管大多数物品都具备充足的Vis容量，但有时候一些备用的护符可能会带来意想不到的作用。
+research.VISPHYLACTERY.stage.2=通过将琥珀注入魔力护身符以强化其，它即可收集Vis又可作为存储Vis的饰品。<BR>值得注意的是，它不会吸收物品栏中的物品进行充能而是会自行吸收外界的Vis进行充能（需要外界Vis容量大于50）。<BR>另外，魔力护身符最多可以存储300点Vis。
