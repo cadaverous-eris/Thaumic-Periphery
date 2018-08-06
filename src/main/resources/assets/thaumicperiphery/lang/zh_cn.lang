@@ -13,8 +13,8 @@ item.magic_quiver.name=奥术箭袋
 item.vis_phylactery.name=魔力护身符
 
 #Info
-thaumicperiphery.ember.cost=Ember消耗：
-item.Focus.cost_ember=Ember per cast
+thaumicperiphery.ember.cost=余烬消耗：
+item.Focus.cost_ember=余烬/每次投掷
 bauble.worn=穿戴时：
 item.malignant_heart.info.1=+50& 攻击伤害
 item.malignant_heart.info.2=-50& 最大生命值
