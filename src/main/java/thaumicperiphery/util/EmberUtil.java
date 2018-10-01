@@ -3,9 +3,9 @@ package thaumicperiphery.util;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
-import teamroots.embers.item.IEmberItem;
-import teamroots.embers.item.IHeldEmberCell;
-import teamroots.embers.item.IInventoryEmberCell;
+import teamroots.embers.api.item.IEmberItem;
+import teamroots.embers.api.item.IHeldEmberCell;
+import teamroots.embers.api.item.IInventoryEmberCell;
 
 public class EmberUtil {
 
