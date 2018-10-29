@@ -17,9 +17,12 @@ public class Config {
 	private final static List<String> PROPERTY_ORDER_TWEAKS = new ArrayList<String>();
 	private final static List<String> PROPERTY_ORDER_COMPAT = new ArrayList<String>();
 	
+	
+	// TWEAKS
 	public static boolean tcBaubleRenderer;
 	public static boolean copperBrassRecipe;
 	
+	// COMPAT
 	public static boolean emberCaster;
 	public static boolean manaCaster;
 	
@@ -41,17 +44,17 @@ public class Config {
 		cfg.addCustomCategoryComment(CATEGORY_TWEAKS, "Tweaks to existing Thaumcraft features");
 		cfg.addCustomCategoryComment(CATEGORY_COMPAT, "Mod compatability options");
 		
-		// tweaks
+		// TWEAKS
 		tcBaubleRenderer = cfg.getBoolean("Thaumcraft Bauble Renderer", CATEGORY_TWEAKS, true, "Adds renderers to Thaumcraft's belts and amulets");
 		copperBrassRecipe = cfg.getBoolean("Copper Brass Recipe", CATEGORY_TWEAKS, true, "Replaces iron with copper in the crucible recipe for alchemical brass");
-		// compat
+		// COMPAT
 		emberCaster = cfg.getBoolean("Ember Caster", CATEGORY_COMPAT, true, "Enables the caster's gauntlet that uses ember instead of vis") && Loader.isModLoaded("embers");
 		manaCaster = cfg.getBoolean("Mana Caster", CATEGORY_COMPAT, true, "Enables the caster's gauntlet that uses mana (from Botania) instead of vis") && Loader.isModLoaded("botania");
 		
-		// ordering
+		// TWEAKS
 		PROPERTY_ORDER_TWEAKS.add("Thaumcraft Bauble Renderer");
 		PROPERTY_ORDER_TWEAKS.add("Copper Brass Recipe");
-		
+		// COMPAT
 		PROPERTY_ORDER_COMPAT.add("Ember Caster");
 		PROPERTY_ORDER_COMPAT.add("Mana Caster");
 		
