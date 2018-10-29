@@ -20,8 +20,14 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.registries.IForgeRegistry;
+import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.aspects.AspectEventProxy;
+import thaumcraft.api.aspects.AspectList;
+import thaumcraft.api.aspects.AspectRegistryEvent;
+import thaumicperiphery.compat.MysticalMechanicsCompat;
 import thaumicperiphery.crafting.PhantomInkRecipe;
 import thaumicperiphery.entities.EntityMagicArrow;
+import thaumicperiphery.items.ItemBase;
 import thaumicperiphery.items.ItemCasterElementium;
 import thaumicperiphery.items.ItemCasterEmber;
 import thaumicperiphery.items.ItemMagicQuiver;
@@ -35,7 +41,7 @@ import thaumicperiphery.render.LayerExtraBaubles;
 @ObjectHolder(ThaumicPeriphery.MODID)
 public class ModContent {
 
-	public static final Item caster_ember = null, caster_elementium = null, pauldron = null, pauldron_repulsion = null, malignant_heart = null, magic_quiver = null, vis_phylactery = null;
+	public static final Item caster_ember = null, caster_elementium = null, pauldron = null, pauldron_repulsion = null, malignant_heart = null, magic_quiver = null, vis_phylactery = null, gear_brass = null;
 	
 	@SubscribeEvent
 	public static void registerBlocks(final RegistryEvent.Register<Block> event) {
@@ -54,6 +60,8 @@ public class ModContent {
 		registry.register(new ItemMalignantHeart());
 		registry.register(new ItemMagicQuiver());
 		registry.register(new ItemVisPhylactery());
+		
+		if (ThaumicPeriphery.mysticalMechanicsLoaded) registry.register(new ItemBase("gear_brass"));
 	}
 	
 	@SubscribeEvent
@@ -70,6 +78,18 @@ public class ModContent {
 		registry.register(new ShapedOreRecipe(null, new ItemStack(pauldron), " PP", "PIL", "I B", 'P', "plateIron", 'I', "ingotIron", 'L', "leather", 'B', "ingotBrass").setRegistryName(ThaumicPeriphery.MODID, "pauldron"));
 		
 		if (ThaumicPeriphery.botaniaLoaded) registry.register(new PhantomInkRecipe().setRegistryName(ThaumicPeriphery.MODID, "phantom_ink"));
+		
+		if (ThaumicPeriphery.mysticalMechanicsLoaded) MysticalMechanicsCompat.initRecipes(event);
+		
+		
+	}
+	
+	@SubscribeEvent
+	public static void registerAspects(AspectRegistryEvent event) {
+		AspectEventProxy registry = event.register;
+		
+		registry.registerComplexObjectTag(new ItemStack(ModContent.pauldron), new AspectList().add(Aspect.PROTECT, 10));
+		registry.registerComplexObjectTag(new ItemStack(ModContent.pauldron_repulsion), new AspectList().add(Aspect.PROTECT, 15));
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -83,6 +103,8 @@ public class ModContent {
 		ModelLoader.setCustomModelResourceLocation(malignant_heart, 0, new ModelResourceLocation(malignant_heart.getRegistryName().toString()));
 		ModelLoader.setCustomModelResourceLocation(magic_quiver, 0, new ModelResourceLocation(magic_quiver.getRegistryName().toString()));
 		ModelLoader.setCustomModelResourceLocation(vis_phylactery, 0, new ModelResourceLocation(vis_phylactery.getRegistryName().toString()));
+		
+		if (ThaumicPeriphery.mysticalMechanicsLoaded) ModelLoader.setCustomModelResourceLocation(gear_brass, 0, new ModelResourceLocation(gear_brass.getRegistryName().toString()));
 	}
 	
 	@SideOnly(Side.CLIENT)

@@ -11,6 +11,7 @@ import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
@@ -26,14 +27,14 @@ import thaumicperiphery.Config;
 import thaumicperiphery.ThaumicPeriphery;
 import thaumicperiphery.items.ItemCasterElementium;
 import thaumicperiphery.items.ItemCasterEmber;
-import thaumicperiphery.util.EmberUtil;
 import thaumicperiphery.util.ManaUtil;
 
 @Mod.EventBusSubscriber(modid = ThaumicPeriphery.MODID, value = Side.CLIENT)
 public class HUDHandler {
 
 	public static final ResourceLocation TC_HUD = new ResourceLocation("thaumcraft", "textures/gui/hud.png");	
-	private static final DecimalFormat secondsFormatter = new DecimalFormat("####");
+	private static final DecimalFormat smallFormatter = new DecimalFormat("####");
+	private static final DecimalFormat largeFormatter = new DecimalFormat("#.#k");
 	
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent(priority=EventPriority.LOWEST)
@@ -90,7 +91,7 @@ public class HUDHandler {
 	    
 	    GL11.glTranslatef(16.0F, 16.0F, 0.0F);
 	    
-	    double max = EmberUtil.getEmberCapacityTotal(player);
+	    double max = EmberInventoryUtil.getEmberCapacityTotal(player);
 	    double amount = EmberInventoryUtil.getEmberTotal(player);
 	    
 	    GL11.glPushMatrix();
@@ -119,7 +120,9 @@ public class HUDHandler {
 	    if (player.isSneaking()) {
 	    	GL11.glPushMatrix();
 	    	GL11.glRotatef(-90.0F, 0.0F, 0.0F, 1.0F);
-	    	String msg = secondsFormatter.format(amount);
+	    	String msg;
+	    	if (MathHelper.floor(amount) > 9999) msg = largeFormatter.format(amount / 1000);
+	    	else msg = smallFormatter.format(amount);
 	    	mc.ingameGUI.drawString(mc.fontRenderer, msg, -32, -4, 16777215);
 	    	GL11.glPopMatrix();
 	      

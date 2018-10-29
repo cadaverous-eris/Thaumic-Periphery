@@ -2,6 +2,7 @@ package thaumicperiphery.items;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.Map.Entry;
 
 import javax.annotation.Nullable;
 
@@ -36,24 +37,16 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.common.lib.SoundsTC;
 import thaumicperiphery.ThaumicPeriphery;
 
-public class ItemPauldronRepulsion extends Item implements IBauble {
+public class ItemPauldronRepulsion extends ItemAttributeBauble {
 
 	public static final String TAG_COOLDOWN = "cooldown";
 
 	protected static final UUID ARMOR_MODIFIER = UUID.fromString("371929FC-4CBC-11E8-842F-0ED5F89F718B");
 	protected static final UUID TOUGHNESS_MODIFIER = UUID.fromString("22E6BD72-4CBD-11E8-842F-0ED5F89F718B");
-	protected static final Multimap<String, AttributeModifier> attributeMap = HashMultimap
-			.<String, AttributeModifier>create();
 
 	public ItemPauldronRepulsion() {
-		this.setRegistryName(new ResourceLocation(ThaumicPeriphery.MODID, "pauldron_repulsion"));
-		this.setUnlocalizedName("pauldron_repulsion");
-
-		this.setMaxStackSize(1);
-		this.setHasSubtypes(false);
-
-		this.setCreativeTab(ThaumicPeriphery.thaumicPeripheryTab);
-
+		super("pauldron_repulsion");
+		
 		this.attributeMap.put(SharedMonsterAttributes.ARMOR.getName(),
 				new AttributeModifier(ARMOR_MODIFIER, "pauldron armor", 2D, 0));
 		this.attributeMap.put(SharedMonsterAttributes.ARMOR_TOUGHNESS.getName(),
@@ -69,9 +62,10 @@ public class ItemPauldronRepulsion extends Item implements IBauble {
 
 	@Override
 	public void onWornTick(ItemStack stack, EntityLivingBase player) {
+		super.onWornTick(stack, player);
+		
 		int cooldown = getCooldown(stack);
-		if (cooldown > 0)
-			setCooldown(stack, cooldown - 1);
+		if (cooldown > 0) setCooldown(stack, cooldown - 1);
 	}
 
 	protected int getCooldown(ItemStack stack) {
@@ -99,25 +93,6 @@ public class ItemPauldronRepulsion extends Item implements IBauble {
 
 		stack.setTagCompound(tag);
 	}
-
-	@Override
-	public void onEquipped(ItemStack itemstack, EntityLivingBase player) {
-		player.getAttributeMap().applyAttributeModifiers(attributeMap);
-	}
-
-	@Override
-	public void onUnequipped(ItemStack itemstack, EntityLivingBase player) {
-		player.getAttributeMap().removeAttributeModifiers(attributeMap);
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-		tooltip.add("");
-		tooltip.add(TextFormatting.GRAY + I18n.format("bauble.worn"));
-		tooltip.add(" " + TextFormatting.BLUE + I18n.format("item.pauldron.info.1"));
-		tooltip.add(" " + TextFormatting.BLUE + I18n.format("item.pauldron.info.2"));
-    }
 
 	@Override
 	public BaubleType getBaubleType(ItemStack itemstack) {

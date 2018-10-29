@@ -5,9 +5,11 @@ import java.util.Map.Entry;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -31,22 +33,27 @@ import thaumcraft.api.research.ResearchEntry.EnumResearchMeta;
 import thaumcraft.api.research.ResearchStage;
 import thaumcraft.common.config.ConfigItems;
 import thaumcraft.common.lib.research.ResearchManager;
+import thaumcraft.common.lib.utils.Utils;
 import thaumicperiphery.Config;
 import thaumicperiphery.ModContent;
 import thaumicperiphery.ThaumicPeriphery;
+import thaumicperiphery.compat.MysticalMechanicsCompat;
+import thaumicperiphery.items.ItemPauldron;
 import vazkii.botania.common.item.ModItems;
 
 public class CommonProxy {
 
 	public static Configuration config;
 
-	public void preInit(FMLPreInitializationEvent event) {
+	public void preInit(FMLPreInitializationEvent event) {	
 		File directory = event.getModConfigurationDirectory();
 		config = new Configuration(new File(directory.getPath(), "thaumic_periphery.cfg"));
 		Config.readConfig();
 	}
 
 	public void init(FMLInitializationEvent event) {
+		
+		
 		ResearchCategories.registerCategory("PERIPHERY", "UNLOCKAUROMANCY",
 				new AspectList(),
 				new ResourceLocation("thaumcraft", "textures/misc/vortex.png"),
@@ -60,6 +67,7 @@ public class CommonProxy {
 		if (Config.manaCaster) {
 			ThaumcraftApi.registerResearchLocation(new ResourceLocation(ThaumicPeriphery.MODID, "research/mana_caster"));
 		}
+		if (ThaumicPeriphery.mysticalMechanicsLoaded) MysticalMechanicsCompat.init();
 	}
 
 	public void postInit(FMLPostInitializationEvent event) {
@@ -70,7 +78,6 @@ public class CommonProxy {
 		if (Config.copperBrassRecipe)
 			replaceBrassRecipe();
 		initResearch();
-		initAspects();
 	}
 
 	protected void initResearch() {
@@ -126,20 +133,12 @@ public class CommonProxy {
 		}
 	}
 
-	protected void initAspects() {
-		ThaumcraftApi.registerComplexObjectTag(new ItemStack(ModContent.pauldron),
-				new AspectList().add(Aspect.PROTECT, 10));
-		ThaumcraftApi.registerComplexObjectTag(new ItemStack(ModContent.pauldron_repulsion),
-				new AspectList().add(Aspect.PROTECT, 10));
-	}
-
 	protected void replaceBrassRecipe() {
 		IThaumcraftRecipe r = ThaumcraftApi.getCraftingRecipes().get(new ResourceLocation("thaumcraft", "brassingot"));
-		if (r != null && r instanceof CrucibleRecipe && OreDictionary.doesOreNameExist("ingotCopper")) {
+		if (r != null && r instanceof CrucibleRecipe && OreDictionary.doesOreNameExist("ingotCopper") && (OreDictionary.getOres("ingotCopper", false).size() > 0)) {
 			CrucibleRecipe recipe = (CrucibleRecipe) r;
 			recipe.setCatalyst(new OreIngredient("ingotCopper"));
 		}
-
 	}
 
 }

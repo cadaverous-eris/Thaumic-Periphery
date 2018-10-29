@@ -46,20 +46,17 @@ import thaumicperiphery.crafting.PhantomInkRecipe;
 import thaumicperiphery.entities.EntityMagicArrow;
 import thaumicperiphery.render.ModelQuiver;
 
-public class ItemMagicQuiver extends Item implements IBauble, IRenderBauble, IRechargable {
+public class ItemMagicQuiver extends ItemBase implements IBauble, IRenderBauble, IRechargable {
 
 	public static final int VIS_COST = 1;
 	
 	private static ModelQuiver model;
 	
 	public ItemMagicQuiver() {
-		this.setRegistryName(new ResourceLocation(ThaumicPeriphery.MODID, "magic_quiver"));
-		this.setUnlocalizedName("magic_quiver");
+		super("magic_quiver");
 		
 		this.setMaxStackSize(1);
 		this.setHasSubtypes(false);
-		
-		this.setCreativeTab(ThaumicPeriphery.thaumicPeripheryTab);
 		
 		this.addPropertyOverride(new ResourceLocation(ThaumicPeriphery.MODID, "charge"), new IItemPropertyGetter() {
 			@SideOnly(Side.CLIENT)

@@ -19,11 +19,12 @@ public class ThaumicPeriphery {
 	
 	public static final String MODID = "thaumicperiphery";
 	public static final String NAME = "Thaumic Periphery";
-	public static final String VERSION = "0.2.3";
-	public static final String DEPENDENCIES = "required-after:thaumcraft;after:botania;after:embers";
+	public static final String VERSION = "0.3.0";
+	public static final String DEPENDENCIES = "required-after:thaumcraft;after:botania;after:embers;after:mysticalmechanics";
 	
 	public static boolean botaniaLoaded = Loader.isModLoaded("botania");
 	public static boolean embersLoaded = Loader.isModLoaded("embers");
+	public static boolean mysticalMechanicsLoaded = Loader.isModLoaded("mysticalmechanics");
 	
 	@SidedProxy(clientSide = "thaumicperiphery.proxy.ClientProxy", serverSide = "thaumicperiphery.proxy.CommonProxy")
 	public static CommonProxy proxy;

@@ -36,20 +36,15 @@ import thaumcraft.client.lib.UtilsFX;
 import thaumicperiphery.ThaumicPeriphery;
 import thaumicperiphery.crafting.PhantomInkRecipe;
 
-public class ItemVisPhylactery extends Item implements IBauble, IRenderBauble, IRechargable {
+public class ItemVisPhylactery extends ItemBase implements IBauble, IRenderBauble, IRechargable {
 
 	private static final ResourceLocation TEXTURE = new ResourceLocation(ThaumicPeriphery.MODID, "textures/model/vis_phylactery.png");
 	private static ModelBiped model;
 	
 	public ItemVisPhylactery() {
-		this.setRegistryName(new ResourceLocation(ThaumicPeriphery.MODID, "vis_phylactery"));
-		this.setUnlocalizedName("vis_phylactery");
+		super("vis_phylactery");
 		
-		this.setMaxDamage(0);
 		this.setMaxStackSize(1);
-		this.setHasSubtypes(false);
-		
-		this.setCreativeTab(ThaumicPeriphery.thaumicPeripheryTab);
 	}
 	
 	@Override
