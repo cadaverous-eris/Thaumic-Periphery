@@ -39,13 +39,16 @@ import thaumicperiphery.ModContent;
 import thaumicperiphery.ThaumicPeriphery;
 import thaumicperiphery.compat.MysticalMechanicsCompat;
 import thaumicperiphery.items.ItemPauldron;
+import thaumicperiphery.network.PacketHandler;
 import vazkii.botania.common.item.ModItems;
 
 public class CommonProxy {
 
 	public static Configuration config;
 
-	public void preInit(FMLPreInitializationEvent event) {	
+	public void preInit(FMLPreInitializationEvent event) {
+		PacketHandler.registerMessages();
+		
 		File directory = event.getModConfigurationDirectory();
 		config = new Configuration(new File(directory.getPath(), "thaumic_periphery.cfg"));
 		Config.readConfig();
